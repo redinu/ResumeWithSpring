@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<p th:text="${person.firstName}"/>
+	<p th:text="${person.lastName}"/>
+	<p th:text="${person.email}"/>
+
+	<form  action="#" th:action="@{/education}"  method="post">
+		Degree obtained: 
+			<input type="text" th:field ="*{education.typeOfDegree}" th:value="*{education.typeOfDegree}" /> 
+			<span th:if="${#fields.hasErrors('education.typeOfDegree')}" th:error="*{firstName}"></span>
+		Institute: 
+			 <input type="text" th:field="*{education.institute}" th:value="*{education.institute}" /> 
+			 <span th:if="${#fields.hasErrors('education.institute')}" th:error="*{institute}"></span>
+		End Date  
+			 <input type="text" th:field="*{education.year}" th:value="*{education.year}" /> 
+			 <span th:if="${#fields.hasErrors('education.year')}" th:error="*{year}"></span>
+		<input type="submit" value="submit" />
+	</form>
+</body>
+</html>
